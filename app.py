@@ -84,6 +84,7 @@ def part1_vulnerable():
     return render_template("part1.html", success_message=success_message)
     
 
+
 @app.route("/part1_correct", methods=['POST'])
 def part1_correct():
     success_message = ""
@@ -149,7 +150,7 @@ def confirm_email(token):
         user_email = serializer.loads(token, salt='email-confirm', max_age=3600)  # Token valid for 1 hour
         # Perform any additional actions here, e.g., update user status in the database
 
-        # Redirect the user to the welcome page
+
         return render_template('email_sent.html', user_email=user_email)
     except Exception as e:
         return 'Invalid or expired token. Please try again.'

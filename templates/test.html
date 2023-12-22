@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data from PostgreSQL Database</title>
+</head>
+<body>
+    <h1>Data from PostgreSQL Database</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <!-- Add more columns based on your table structure -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <!-- Add more columns based on your table structure -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Insert Data</h2>
+    <form action="/insert" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+
+        <button type="submit">Insert</button>
+    </form>
+</body>
+</html>
